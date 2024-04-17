@@ -41,7 +41,8 @@ class User
     private ?\DateTimeImmutable $subscription_end_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?subscription $subscription_id = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?subscription $subscription = null;
 
     /**
      * @var Collection<int, Pdf>
@@ -155,14 +156,14 @@ class User
         return $this;
     }
 
-    public function getSubscriptionId(): ?subscription
+    public function getSubscription(): ?subscription
     {
-        return $this->subscription_id;
+        return $this->subscription;
     }
 
-    public function setSubscriptionId(?subscription $subscription_id): static
+    public function setSubscriptionId(?subscription $subscription): static
     {
-        $this->subscription_id = $subscription_id;
+        $this->subscription = $subscription;
 
         return $this;
     }
