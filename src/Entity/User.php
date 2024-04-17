@@ -37,7 +37,7 @@ class User
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $subscription_end_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
