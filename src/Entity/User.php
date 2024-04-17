@@ -42,7 +42,7 @@ class User
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?subscription $subscription = null;
+    private ?Subscription $subscription = null;
 
     /**
      * @var Collection<int, Pdf>
@@ -156,12 +156,12 @@ class User
         return $this;
     }
 
-    public function getSubscription(): ?subscription
+    public function getSubscription(): ?Subscription
     {
         return $this->subscription;
     }
 
-    public function setSubscriptionId(?subscription $subscription): static
+    public function setSubscription(?Subscription $subscription): static
     {
         $this->subscription = $subscription;
 

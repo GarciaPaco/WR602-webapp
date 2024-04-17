@@ -118,7 +118,7 @@ class Subscription
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
-            $user->setSubscriptionId($this);
+            $user->setSubscription($this);
         }
 
         return $this;
@@ -128,8 +128,8 @@ class Subscription
     {
         if ($this->users->removeElement($user)) {
             // set the owning side to null (unless already changed)
-            if ($user->getSubscriptionId() === $this) {
-                $user->setSubscriptionId(null);
+            if ($user->getSubscription() === $this) {
+                $user->setSubscription(null);
             }
         }
 
