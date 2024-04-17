@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class SubscriptionTest extends TestCase
 {
-    public function testSetterSubscription(): void
+    public function testSetterGetterSubscription(): void
     {
         $subscription = new Subscription();
 

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PdfTest extends TestCase
 {
-    public function testSetterPdf(): void
+    public function testSetterGetterPdf(): void
     {
         $pdf = new Pdf();
 

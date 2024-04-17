@@ -17,7 +17,7 @@ class UserTest extends TestCase
         $this->passwordHasher = $this->createMock(UserPasswordHasherInterface::class);
     }
 
-    public function testSetterUser(): void
+    public function testSetterGetterUser(): void
     {
         $user = new User();
 
@@ -44,9 +44,5 @@ class UserTest extends TestCase
 
     }
 
-//    public function testGetterUser(): void
-//    {
-//
-//    }
 
 }
