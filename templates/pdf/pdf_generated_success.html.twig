@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PDF Generated Successfully !</h1>
+
+    <h1>Generated PDF:</h1>
+    <iframe src="{{ asset('pdfs/' ~ filename) }}" width="100%" height="500px"></iframe>
+    <a href="{{ asset('pdfs/' ~ filename) }}" download>Download PDF</a>
+{% endblock %}
+
