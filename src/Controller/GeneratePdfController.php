@@ -22,7 +22,7 @@ class GeneratePdfController extends AbstractController
     {
         // Créer le formulaire
         $form = $this->createFormBuilder()
-            ->add('url', null, ['required' => true])
+            ->add('url', null, ['required' => true, 'label' => 'URL'])
             ->getForm();
 
         // Gérer la soumission du formulaire
@@ -43,6 +43,7 @@ class GeneratePdfController extends AbstractController
 
             // Redirect to the new route
             return $this->redirectToRoute('pdf_generated_success', ['filename' => $filename]);
+
         }
 
         // Si le formulaire n'est pas soumis ou n'est pas valide, afficher le formulaire sans le PDF
@@ -52,8 +53,11 @@ class GeneratePdfController extends AbstractController
     }
 
     #[Route('/pdf-generated-success', name: 'pdf_generated_success')]
-    public function pdfGeneratedSuccess(): Response
+    public function pdfGeneratedSuccess(Request $request): Response
     {
-        return $this->render('pdf/pdf_generated_success.html.twig');
+        $filename = $request->query->get('filename');
+        return $this->render('pdf/pdf_generated_success.html.twig', [
+            'filename' => $filename,
+        ]);
     }
 }
